@@ -26,4 +26,13 @@ form.addEventListener('submit', function (event) {
             fields[i].parentElement.insertBefore(error, fields[i]);
         }
     }
+
+    if (password.value !== passwordConfirmation.value) {
+        var error = document.createElement('div');
+        error.className = 'error';
+        error.style.color = 'red';
+        error.innerHTML = 'Passwords doesnt match';
+        password.parentElement.insertBefore(error, password);
+    }
+
 });
