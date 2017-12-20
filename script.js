@@ -9,30 +9,43 @@ var message = document.querySelector('.message');
 
 var fields = document.querySelectorAll('.field');
 
-form.addEventListener('submit', function (event) {
-    event.preventDefault();
+var generateError = function (text) {
+    var error = document.createElement('div');
+    error.className = 'error';
+    error.style.color = 'red';
+    error.innerHTML = text;
+    return error;
+};
 
+var removeValidation = function () {
     var errors = document.querySelectorAll('.error');
     for(var i = 0; i < errors.length; i++) {
-        errors[i].remove();
+        errors[i].remove()
     }
+};
 
+var checkFieldPresence = function () {
     for(var i = 0; i < fields.length; i++) {
         if (!fields[i].value) {
-            var error = document.createElement('div');
-            error.className = 'error';
-            error.style.color = 'red';
-            error.innerHTML = 'cannot be blank';
+            var error = generateError('cannot be blank');
             fields[i].parentElement.insertBefore(error, fields[i]);
         }
     }
+};
 
+var checkPasswordMath = function () {
     if (password.value !== passwordConfirmation.value) {
-        var error = document.createElement('div');
-        error.className = 'error';
-        error.style.color = 'red';
-        error.innerHTML = 'Passwords doesnt match';
+        var error = generateError('Passwords doesnt match');
         password.parentElement.insertBefore(error, password);
     }
+};
 
+form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    removeValidation();
+
+    checkFieldPresence();
+
+    checkPasswordMath();
 });
