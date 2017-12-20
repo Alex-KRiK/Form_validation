@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>formValidation</title>
+        <meta charset="UTF-8"/>
+    </head>
+<body>
+
+<form class="formWithValidation">
+    <div>
+        <div>
+            <label>From</label>
+        </div>
+        <div>
+            <input type="text" class="from"/>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <label>Password:</label>
+        </div>
+        <div>
+            <input tupe="password" class="password"/>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <label>Password confirmation:</label>
+        </div>
+        <div>
+            <input type="password" class="passwordConfirmation">
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <label>Where:</label>
+        </div>
+        <div>
+            <select class="where">
+                <option></option>
+                <option value="developers">Developers</option>
+                <option value="managers">Managers</option>
+                <option value="devop">DevOps</option>
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <label>Message:</label>
+        </div>
+        <div>
+            <textarea class="message"></textarea>
+        </div>
+    </div>
+
+    <input type="submit" class="validateBtn" value="Validate"/>
+
+</form>
+
+<script src="script.js"></script>
+
+</body>
+</html>
