@@ -12,6 +12,11 @@ var fields = document.querySelectorAll('.field');
 form.addEventListener('submit', function (event) {
     event.preventDefault();
 
+    var errors = document.querySelectorAll('.error');
+    for(var i = 0; i < errors.length; i++) {
+        errors[i].remove();
+    }
+
     for(var i = 0; i < fields.length; i++) {
         if (!fields[i].value) {
             var error = document.createElement('div');
